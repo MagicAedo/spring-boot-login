@@ -1,3 +1,9 @@
+# Ejecutar contenedor de Postgres
+En la misma carpeta del proyecto donde esta el archivo docker-compose.yml, ejecutar el siguiente comando:
+```
+docker compose up
+```
+
 # Spring Boot Login example with Spring Security, MySQL and JWT
 Build a Spring Boot Login and Registration example (Rest API) that supports JWT with HttpOnly Cookie. You’ll know:
 
