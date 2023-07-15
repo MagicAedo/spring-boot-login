@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14.1-alpine
+    container_name: postgresimage
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+    command: >
+      bash -c "
+      echo 'CREATE SCHEMA IF NOT EXISTS usuario;' >> /docker-entrypoint-initdb.d/init-user-schema.sql &&
+      echo 'SET search_path TO usuario;' >> /docker-entrypoint-initdb.d/init-user-schema.sql &&
+      echo 'CREATE TABLE IF NOT EXISTS roles (id SERIAL PRIMARY KEY, name VARCHAR(20));' >> /docker-entrypoint-initdb.d/init-user-schema.sql &&
+      echo \"INSERT INTO usuario.roles(name) VALUES ('ROLE_USER');\" >> /docker-entrypoint-initdb.d/init-user-schema.sql &&
+      echo \"INSERT INTO usuario.roles(name) VALUES ('ROLE_MODERATOR');\" >> /docker-entrypoint-initdb.d/init-user-schema.sql &&
+      echo \"INSERT INTO usuario.roles(name) VALUES ('ROLE_ADMIN');\" >> /docker-entrypoint-initdb.d/init-user-schema.sql &&
+      docker-entrypoint.sh postgres
+      "
+volumes:
+  db:
+    driver: local
+

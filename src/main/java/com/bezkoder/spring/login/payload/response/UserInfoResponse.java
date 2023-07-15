@@ -6,12 +6,15 @@ public class UserInfoResponse {
 	private Long id;
 	private String username;
 	private String email;
+
+	private String celular;
 	private List<String> roles;
 
-	public UserInfoResponse(Long id, String username, String email, List<String> roles) {
+	public UserInfoResponse(Long id, String username, String email, String celular,List<String> roles) {
 		this.id = id;
 		this.username = username;
 		this.email = email;
+		this.celular = celular;
 		this.roles = roles;
 	}
 
@@ -21,6 +24,14 @@ public class UserInfoResponse {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
 	}
 
 	public String getEmail() {
