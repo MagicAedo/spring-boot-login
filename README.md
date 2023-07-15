@@ -1,4 +1,5 @@
 # Inicializar base de datos
+En el mismo directorio del proyecto al clonarlo, ejecutar:
 ```
 docker compose up
 ```
