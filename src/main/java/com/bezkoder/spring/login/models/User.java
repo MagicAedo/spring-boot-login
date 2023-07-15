@@ -47,12 +47,13 @@ public class User {
   public User() {
   }
 
-  public User(String username, String email, String password,String celular) {
+  public User(String username, String email,String celular,String password) {
     this.username = username;
     this.email = email;
     this.password = password;
     this.celular = celular;
   }
+
 
   public String getCelular() {
     return celular;
