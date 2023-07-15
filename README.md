@@ -1,4 +1,4 @@
-#Inicializar base de datos
+# Inicializar base de datos
 ```
 docker compose up
 ```
